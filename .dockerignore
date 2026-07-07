@@ -1,0 +1,12 @@
+.git
+.gitignore
+.env
+.env.*
+!.env.example
+log/*
+tmp/*
+node_modules
+vendor/bundle
+storage/*
+public/assets
+public/packs

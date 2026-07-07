@@ -50,12 +50,12 @@ Additional guidance for AI assistants can be found in:
 
 ## Getting Started
 
+Development runs entirely inside Docker. You only need Docker and Docker Compose on your host machine.
+
 ### Prerequisites
 
-* Ruby
-* PostgreSQL
-* Node.js
-* Yarn
+* [Docker](https://docs.docker.com/get-docker/)
+* [Docker Compose](https://docs.docker.com/compose/install/)
 
 ### Setup
 
@@ -63,10 +63,37 @@ Additional guidance for AI assistants can be found in:
 git clone <repository-url>
 cd jobflow-ai
 
-bundle install
-bin/setup
+cp .env.example .env
+docker compose build
+docker compose up -d
+```
 
-bin/dev
+### Working inside the container
+
+Run commands in the Rails container:
+
+```bash
+docker compose exec web bash
+```
+
+Run one-off commands without opening a shell:
+
+```bash
+docker compose exec web ruby -v
+docker compose exec web node -v
+docker compose exec web yarn -v
+```
+
+Verify PostgreSQL is reachable from the web container:
+
+```bash
+docker compose exec web pg_isready -h db -U jobflow -d jobflow_ai_development
+```
+
+Stop the environment:
+
+```bash
+docker compose down
 ```
 
 ## Development Principles

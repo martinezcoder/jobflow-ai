@@ -1,0 +1,26 @@
+# Environment
+.env
+.env.local
+
+# Bundler
+/.bundle
+/vendor/bundle
+
+# Logs and temp files
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Node
+/node_modules
+/yarn-error.log
+
+# Rails assets
+/public/assets
+/public/packs
+/public/packs-test
+
+# Storage
+/storage/*
+!/storage/.keep

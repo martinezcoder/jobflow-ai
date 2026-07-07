@@ -1,0 +1,15 @@
+#!/bin/bash
+set -e
+
+if [ -f tmp/pids/server.pid ]; then
+  rm -f tmp/pids/server.pid
+fi
+
+if [ -n "${DATABASE_HOST}" ]; then
+  until pg_isready -h "${DATABASE_HOST}" -U "${DATABASE_USER}" -d "${DATABASE_NAME}" > /dev/null 2>&1; do
+    echo "Waiting for PostgreSQL at ${DATABASE_HOST}..."
+    sleep 1
+  done
+fi
+
+exec "$@"
