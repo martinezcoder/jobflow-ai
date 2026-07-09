@@ -12,4 +12,6 @@ if [ -n "${DATABASE_HOST}" ]; then
   done
 fi
 
+bundle check || bundle install
+
 exec "$@"

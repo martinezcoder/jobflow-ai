@@ -16,6 +16,13 @@ RUN apt-get update -qq && \
 
 WORKDIR /rails
 
+ENV BUNDLE_PATH="/usr/local/bundle" \
+    BUNDLE_JOBS="4" \
+    BUNDLE_RETRY="3"
+
+COPY Gemfile Gemfile.lock ./
+RUN bundle install
+
 COPY bin/docker-entrypoint /usr/bin/
 RUN chmod +x /usr/bin/docker-entrypoint
 
