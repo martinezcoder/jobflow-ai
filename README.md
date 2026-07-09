@@ -66,7 +66,10 @@ cd jobflow-ai
 cp .env.example .env
 docker compose build
 docker compose up -d
+docker compose exec web bin/rails db:create db:migrate
 ```
+
+The application is available at [http://localhost:3000](http://localhost:3000).
 
 ### Working inside the container
 
@@ -79,9 +82,8 @@ docker compose exec web bash
 Run one-off commands without opening a shell:
 
 ```bash
-docker compose exec web ruby -v
-docker compose exec web node -v
-docker compose exec web yarn -v
+docker compose exec web bin/rails db:migrate
+docker compose exec web bin/rails console
 ```
 
 Verify PostgreSQL is reachable from the web container:
@@ -117,4 +119,3 @@ These documents describe the philosophy and engineering principles that guide th
 ## License
 
 TBD
-

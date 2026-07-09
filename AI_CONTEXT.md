@@ -113,3 +113,17 @@ The objective is not to build impressive software.
 
 The objective is to build a product that genuinely helps people make better career decisions.
 
+# Technical Constraints
+
+Use these defaults unless a human explicitly decides otherwise:
+
+- Ruby: 3.3.6
+- Rails: 8.x
+- Database: PostgreSQL
+- Frontend: Hotwire + Tailwind CSS
+- Authentication: Devise
+- Testing: RSpec + FactoryBot
+- Development environment: Docker Compose
+- API strategy: REST first, GraphQL later
+- Follow Rails conventions whenever possible.
+- Do not introduce new services, frameworks or architectural patterns without a clear product need.
