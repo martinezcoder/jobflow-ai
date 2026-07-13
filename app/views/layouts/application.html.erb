@@ -24,7 +24,28 @@
   </head>
 
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <header class="container mx-auto px-5 py-4 flex items-center justify-between">
+      <%= link_to "JobFlow AI", root_path, class: "font-semibold" %>
+
+      <nav class="flex items-center gap-4 text-sm">
+        <% if user_signed_in? %>
+          <span>Signed in as <%= current_user.email %></span>
+          <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "underline" %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path, class: "underline" %>
+        <% end %>
+      </nav>
+    </header>
+
+    <% if notice.present? %>
+      <p class="container mx-auto px-5 py-2 text-green-700" role="status"><%= notice %></p>
+    <% end %>
+
+    <% if alert.present? %>
+      <p class="container mx-auto px-5 py-2 text-red-700" role="alert"><%= alert %></p>
+    <% end %>
+
+    <main class="container mx-auto mt-12 px-5">
       <%= yield %>
     </main>
   </body>
