@@ -40,7 +40,6 @@ services:
       DATABASE_PASSWORD: ${POSTGRES_PASSWORD:-jobflow}
       DATABASE_NAME: ${POSTGRES_DB:-jobflow_ai_development}
       DATABASE_URL: postgres://${POSTGRES_USER:-jobflow}:${POSTGRES_PASSWORD:-jobflow}@db:5432/${POSTGRES_DB:-jobflow_ai_development}
-      RAILS_ENV: development
     depends_on:
       db:
         condition: service_healthy
