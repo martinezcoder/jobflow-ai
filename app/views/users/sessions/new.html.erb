@@ -1,0 +1,17 @@
+<h1 class="text-2xl font-semibold mb-6">Sign in</h1>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "space-y-4 max-w-md" }) do |f| %>
+  <div>
+    <%= f.label :email, class: "block text-sm font-medium mb-1" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-full rounded border border-gray-300 px-3 py-2" %>
+  </div>
+
+  <div>
+    <%= f.label :password, class: "block text-sm font-medium mb-1" %>
+    <%= f.password_field :password, autocomplete: "current-password", class: "w-full rounded border border-gray-300 px-3 py-2" %>
+  </div>
+
+  <div>
+    <%= f.submit "Sign in", class: "rounded bg-black px-4 py-2 text-white font-medium cursor-pointer" %>
+  </div>
+<% end %>

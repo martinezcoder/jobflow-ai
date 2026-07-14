@@ -32,6 +32,7 @@
           <span>Signed in as <%= current_user.email %></span>
           <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "underline" %>
         <% else %>
+          <%= link_to "Sign in", new_user_session_path, class: "underline" %>
           <%= link_to "Sign up", new_user_registration_path, class: "underline" %>
         <% end %>
       </nav>
