@@ -71,6 +71,24 @@ docker compose exec web bin/rails db:create db:migrate
 
 The application is available at [http://localhost:3000](http://localhost:3000).
 
+### Make commands
+
+Common development tasks are available through the Makefile:
+
+| Command         | Description                                              |
+| --------------- | -------------------------------------------------------- |
+| `make up`       | Start the development services                           |
+| `make down`     | Stop the development services                            |
+| `make logs`     | Follow application logs                                  |
+| `make bash`     | Open a shell inside the web container                    |
+| `make console`  | Open the Rails console                                   |
+| `make test`     | Run the complete RSpec suite in the test environment     |
+| `make lint`     | Run RuboCop                                              |
+| `make security` | Run Brakeman                                           |
+| `make help`     | List available commands                                  |
+
+Run `make help` to see the command list in the terminal.
+
 ### Working inside the container
 
 Run commands in the Rails container:
