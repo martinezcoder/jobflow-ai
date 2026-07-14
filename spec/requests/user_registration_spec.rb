@@ -55,6 +55,9 @@ RSpec.describe "User sign out", type: :request do
 
     expect(response).to redirect_to(root_path)
     follow_redirect!
+    expect(response).to redirect_to(new_user_session_path)
+    follow_redirect!
+    expect(response.body).to include("Sign in")
     expect(response.body).to include("Sign up")
     expect(response.body).not_to include("Signed in as")
   end
