@@ -1,0 +1,20 @@
+<h1 class="text-2xl font-semibold mb-6">Profile</h1>
+
+<dl class="space-y-4 max-w-md mb-6">
+  <div>
+    <dt class="text-sm font-medium text-gray-600">First name</dt>
+    <dd class="mt-1"><%= @user.first_name.presence || "—" %></dd>
+  </div>
+
+  <div>
+    <dt class="text-sm font-medium text-gray-600">Last name</dt>
+    <dd class="mt-1"><%= @user.last_name.presence || "—" %></dd>
+  </div>
+
+  <div>
+    <dt class="text-sm font-medium text-gray-600">Email</dt>
+    <dd class="mt-1"><%= @user.email %></dd>
+  </div>
+</dl>
+
+<%= link_to "Edit profile", edit_profile_path, class: "underline" %>
